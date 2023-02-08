@@ -59,6 +59,14 @@ oauth2.0 프로토콜기반 인증서버 (제휴앱관리,계정관리)
    );
    comment on table USER_MGMT_TB is '사용자 계정관리 테이블';
    comment on column USER_MGMT_TB.USER_ID is '사용자 ID';
+   comment on column USER_MGMT_TB.PASSWORD is '비밀번호';
+   comment on column USER_MGMT_TB.NICKNAME is '별명';
+   comment on column USER_MGMT_TB.EMAIL is '이메일';
+   comment on column USER_MGMT_TB.BIRTHDAY is '생일';
+   comment on column USER_MGMT_TB.GENDER is '성별';
+   comment on column USER_MGMT_TB.KOR_NAME is '국문이름';
+   comment on column USER_MGMT_TB.UPDATED_AT is '업데이트 일자';
+   comment on column USER_MGMT_TB.CREATED_AT is '생성 일자';
    ```
  
  * 제휴앱 관리 테이블
@@ -75,6 +83,15 @@ oauth2.0 프로토콜기반 인증서버 (제휴앱관리,계정관리)
       CREATED_AT timestamp not null default now(),
       primary key (APP_ID)
    )
+   comment on table APP_MGMT_TB is '제휴앱 관리 테이블';
+   comment on column APP_MGMT_TB.APP_ID is '제휴앱 ID';
+   comment on column APP_MGMT_TB.APP_NAME is '제휴앱 명칭';
+   comment on column APP_MGMT_TB.APPKEY_ADMIN is '제휴앱 키값(ADMIN)';
+   comment on column APP_MGMT_TB.APPKEY_REST is '제휴앱 키값(REST)';
+   comment on column APP_MGMT_TB.CLIENT_SECRET is 'ClientSecret';
+   comment on column APP_MGMT_TB.CLIENT_SECRET_STATUS is 'ClientSecret 사용여부';
+   comment on column APP_MGMT_TB.UPDATED_AT is '업데이트 일자';
+   comment on column APP_MGMT_TB.CREATED_AT is '생성 일자';
    ```
  
  * 제휴앱 팀(권한)관리 테이블
@@ -90,6 +107,12 @@ oauth2.0 프로토콜기반 인증서버 (제휴앱관리,계정관리)
       foreign key (APP_ID) references APP_MGMT
       foreign key (USER_ID) references USER
    )
+   comment on table APP_MEMBER_TB is '제휴앱 팀(권한)관리 테이블';
+   comment on column APP_MEMBER_TB.APP_ID is '제휴앱 ID';
+   comment on column APP_MEMBER_TB.USER_ID is '사용자 ID';
+   comment on column APP_MEMBER_TB.GRANT_TYPE is '권한부여 타입';
+   comment on column APP_MEMBER_TB.UPDATED_AT is '업데이트 일자';
+   comment on column APP_MEMBER_TB.CREATED_AT is '생성 일자';
    ```
 
  * Redirect URI 관리 테이블
@@ -103,6 +126,11 @@ oauth2.0 프로토콜기반 인증서버 (제휴앱관리,계정관리)
       primary key (APP_ID, REDIRECT_URI)
       foreign key (APP_ID) references APP_MGMT
    )
+   comment on table APP_REDIRECT_TB is 'RedirectURI 관리 테이블';
+   comment on column APP_REDIRECT_TB.APP_ID is '제휴앱 ID';
+   comment on column APP_REDIRECT_TB.REDIRECT_URI is 'RedirectURI';
+   comment on column APP_REDIRECT_TB.UPDATED_AT is '업데이트 일자';
+   comment on column APP_REDIRECT_TB.CREATED_AT is '생성 일자';
    ```
   
  * 동의항목 관리 테이블
@@ -118,5 +146,12 @@ oauth2.0 프로토콜기반 인증서버 (제휴앱관리,계정관리)
       primary key (APP_ID, SCOPE_ID)
       foreign key (APP_ID) references APP_MGMT
    )
+   comment on table APP_SCOPE_TB is '동의항목 관리 테이블';
+   comment on column APP_SCOPE_TB.APP_ID is '제휴앱 ID';
+   comment on column APP_SCOPE_TB.SCOPE_ID is '동의항목 ID';
+   comment on column APP_SCOPE_TB.SCOPE_NAME is '동의항목 명칭';
+   comment on column APP_SCOPE_TB.CONSENT_TYPE is '동의 유형';
+   comment on column APP_SCOPE_TB.UPDATED_AT is '업데이트 일자';
+   comment on column APP_SCOPE_TB.CREATED_AT is '생성 일자';
    ```
  
