@@ -14,7 +14,8 @@ import org.springframework.web.reactive.function.server.router
  */
 @Configuration
 class AccountRouter(
-    private val accountHandler: AccountHandler
+    private val loginPageHandler: LoginPageHandler,
+    private val loginProcHandler: LoginProcHandler
 ) {
     private val log = LoggerFactory.getLogger(this::class.java)
 
@@ -22,9 +23,8 @@ class AccountRouter(
     fun loginPageRouterFunction(): RouterFunction<ServerResponse> =
         router {
             accept(MediaType.APPLICATION_JSON).nest {
-                GET("/login", accountHandler::loginPage)
-                GET("/login/find", accountHandler::findAccountPage)
-                GET("/login/register", accountHandler::registerPage)
+                GET("/login", loginPageHandler::loginPage)
+                GET("/login/register", loginPageHandler::registerPage)
             }
         }
 
@@ -32,7 +32,8 @@ class AccountRouter(
     fun loginProcessRouterFunction(): RouterFunction<ServerResponse> =
         router {
             accept(MediaType.APPLICATION_JSON).nest {
-                POST("/api/login/auth", accountHandler::loginAuth)
+                POST("/api/login/auth", loginProcHandler::auth)
+                POST("/api/login/register", loginProcHandler::register)
             }
         }
 }

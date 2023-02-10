@@ -6,6 +6,6 @@ import reactor.core.publisher.Mono
  * @author yoonho
  * @since 2023.02.08
  */
-interface LoginPort {
+interface FindPort {
     fun loginProcess(userId: String, password: String): Mono<Boolean>
 }

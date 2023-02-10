@@ -26,7 +26,7 @@
               </div>
               <div class="unit-td">
                 <div class="ui-component input-container" data-component="input">
-                  <input id="userId" type="text" />
+                  <input id="userId" type="text" value="admin" />
                 </div>
               </div>
             </div>
@@ -36,7 +36,7 @@
               </div>
               <div class="unit-td">
                 <div class="ui-component input-container" data-component="input">
-                  <input id="password" type="password" />
+                  <input id="password" type="password" value="admin" />
                 </div>
               </div>
             </div>
@@ -76,6 +76,7 @@
           },
           error: function(err){
             console.log(err);
+            alert("로그인 실패..");
           }
         });
       }

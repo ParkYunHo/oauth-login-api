@@ -1,5 +1,6 @@
 package com.john.oauth.account.domain
 
+import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 import java.time.LocalDateTime
@@ -9,7 +10,10 @@ import java.time.LocalDateTime
  * @since 2023.02.08
  */
 @Table(name = "USER_MGMT_TB")
-class Account(
+data class Account(
+    @Id
+    @Column("ID")
+    val id: Long = 0,
     @Column("USER_ID")
     val userId: String,
     @Column("PASSWORD")

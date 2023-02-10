@@ -1,5 +1,6 @@
-create table USER_MGMT_TB
+create table if not exists USER_MGMT_TB
 (
+    ID bigint not null AUTO_INCREMENT,
     USER_ID varchar(255) not null,
     PASSWORD varchar(255) not null,
     NICKNAME varchar(255),
@@ -9,9 +10,10 @@ create table USER_MGMT_TB
     KOR_NAME varchar(255),
     UPDATED_AT timestamp default now(),
     CREATED_AT timestamp not null default now(),
-    primary key (USER_ID)
+    primary key (ID)
 );
 comment on table USER_MGMT_TB is '사용자 계정관리 테이블';
+comment on column USER_MGMT_TB.ID is '사용자 UNIQUE KEY';
 comment on column USER_MGMT_TB.USER_ID is '사용자 ID';
 comment on column USER_MGMT_TB.PASSWORD is '비밀번호';
 comment on column USER_MGMT_TB.NICKNAME is '별명';

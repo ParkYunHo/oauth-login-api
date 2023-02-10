@@ -10,4 +10,5 @@ import reactor.core.publisher.Mono
  */
 interface AccountRepository: ReactiveCrudRepository<Account, String> {
     fun findByUserIdAndPassword(userId: String, password: String): Mono<Account>
+    fun findByUserId(userId: String): Mono<Account>
 }
