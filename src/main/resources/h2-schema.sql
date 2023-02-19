@@ -24,4 +24,4 @@ comment on column USER_MGMT_TB.KOR_NAME is '국문이름';
 comment on column USER_MGMT_TB.UPDATED_AT is '업데이트 일자';
 comment on column USER_MGMT_TB.CREATED_AT is '생성 일자';
 
-insert into USER_MGMT_TB (USER_ID, PASSWORD, NICKNAME, EMAIL, BIRTHDAY, GENDER, KOR_NAME) values ('admin', 'admin', 'admin', 'admin@admin.com', '19910921', 'M', 'admin');
+-- insert into USER_MGMT_TB (USER_ID, PASSWORD, NICKNAME, EMAIL, BIRTHDAY, GENDER, KOR_NAME) values ('admin', 'admin', 'admin', 'admin@admin.com', '19910921', 'M', 'admin');

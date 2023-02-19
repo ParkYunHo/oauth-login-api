@@ -11,7 +11,7 @@ data class RegisterInput (
     @JsonProperty("userId")
     val userId: String,
     @JsonProperty("password")
-    val password: String,
+    var password: String,
     @JsonProperty("nickname")
     val nickName: String,
     @JsonProperty("email")
